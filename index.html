@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>// SYSTEM COMPROMISED // HACKED BY ISKANDAR</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            user-select: none;
+        }
+
+        body {
+            background: #000000;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            font-family: 'Courier New', 'Fira Code', 'Lucida Console', monospace;
+            position: relative;
+        }
+
+        /* fullscreen matrix rain effect */
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(0deg, rgba(0, 255, 0, 0.03) 0px, rgba(0, 255, 0, 0.03) 2px, transparent 2px, transparent 6px);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* main terminal — no fancy card, just raw hack */
+        .hack-terminal {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1.5rem;
+            z-index: 10;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(2px);
+        }
+
+        .ascii-banner {
+            font-size: 0.7rem;
+            color: #0f0;
+            text-align: center;
+            white-space: pre;
+            font-family: monospace;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 3px #0f0;
+            letter-spacing: 1px;
+        }
+
+        .glitch {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #0f0;
+            text-shadow: -2px 0 red, 2px 0 cyan;
+            animation: glitchAnim 0.4s infinite alternate;
+            margin-bottom: 1.2rem;
+            text-align: center;
+            word-break: break-word;
+        }
+
+        @keyframes glitchAnim {
+            0% { text-shadow: -2px 0 #ff0000, 2px 0 #00ffff; }
+            100% { text-shadow: 2px 0 #ff0000, -2px 0 #00ffff; }
+        }
+
+        .question-line {
+            font-size: 1.6rem;
+            color: #8eff8e;
+            margin: 1rem 0;
+            border-left: 4px solid #0f0;
+            padding-left: 18px;
+            background: #00000099;
+            width: 100%;
+            max-width: 700px;
+            font-weight: bold;
+        }
+
+        .blink-cursor {
+            display: inline-block;
+            width: 10px;
+            height: 1.2rem;
+            background-color: #0f0;
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+            margin-left: 5px;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .button-row {
+            display: flex;
+            gap: 2rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hack-btn {
+            background: #030303;
+            border: 2px solid #0f0;
+            color: #0f0;
+            font-family: monospace;
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 12px 28px;
+            cursor: pointer;
+            transition: 0.1s linear;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            box-shadow: 0 0 8px #0f0;
+        }
+
+        .hack-btn:hover {
+            background: #0f0;
+            color: black;
+            box-shadow: 0 0 18px #0f0;
+            transform: scale(1.02);
+        }
+
+        .no-btn {
+            border-color: #ff3333;
+            color: #ff7777;
+            box-shadow: 0 0 5px #ff3333;
+        }
+
+        .no-btn:hover {
+            background: #ff3333;
+            color: black;
+        }
+
+        /* hacker simulation overlay - full screen takeover */
+        .hack-sim-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            z-index: 10000;
+            padding: 2rem;
+            font-family: 'Courier New', monospace;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .sim-console {
+            width: 95%;
+            max-width: 900px;
+            background: #010101;
+            border: 1px solid #0f0;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 0 25px #0f0;
+            height: auto;
+            max-height: 70%;
+            overflow-y: auto;
+        }
+
+        .sim-line {
+            color: #2eff7a;
+            font-size: 1rem;
+            font-family: monospace;
+            margin: 8px 0;
+            white-space: pre-wrap;
+            word-break: break-all;
+            border-left: 2px solid #0f0;
+            padding-left: 12px;
+        }
+
+        .hacked-footer {
+            margin-top: 1.5rem;
+            color: #0f0;
+            text-align: center;
+            font-size: 1rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .loading-dots::after {
+            content: "";
+            animation: dotsAnim 1.2s steps(3, end) infinite;
+            display: inline-block;
+            width: 24px;
+            text-align: left;
+        }
+
+        @keyframes dotsAnim {
+            0% { content: "."; }
+            33% { content: ".."; }
+            66% { content: "..."; }
+            100% { content: ""; }
+        }
+
+        /* no nerdy UI — just raw hacker */
+        .hidden {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+<div class="matrix-bg"></div>
+
+<div class="hack-terminal" id="mainTerminal">
+    <div class="ascii-banner">
+        ██╗  ██╗ █████╗  ██████╗██╗  ██╗███████╗██████╗ <br>
+        ██║ ██╔╝██╔══██╗██╔════╝██║ ██╔╝██╔════╝██╔══██╗<br>
+        █████╔╝ ███████║██║     █████╔╝ █████╗  ██║  ██║<br>
+        ██╔═██╗ ██╔══██║██║     ██╔═██╗ ██╔══╝  ██║  ██║<br>
+        ██║  ██╗██║  ██║╚██████╗██║  ██╗███████╗██████╔╝<br>
+        ╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═════╝ 
+    </div>
+    <div class="glitch">
+        ⚡ HACKED BY ISKANDAR ⚡
+    </div>
+    <div class="question-line">
+        > CAN I GET YOUR NUMBER ? <span class="blink-cursor"></span>
+    </div>
+    <div class="button-row">
+        <button class="hack-btn" id="yesHackBtn">[ YES ] GRANT ACCESS</button>
+        <button class="hack-btn no-btn" id="noHackBtn">[ NO ] DENY</button>
+    </div>
+    <div style="color:#2a6e2a; font-size:0.7rem; margin-top: 1rem; text-align:center;">
+        [ encrypted channel // iskandar@darkweb ]
+    </div>
+</div>
+
+<script>
+    (function() {
+        // =================== WHATSAPP CONFIG ===================
+        // CHANGE THIS TO YOUR REAL NUMBER (without + or spaces)
+        // Example Malaysia: 60123456789
+        const MY_PHONE = '60123456789';   // <------- REPLACE WITH YOUR NUMBER
+        const WA_MSG = "🔥 HACKED BY ISKANDAR | I accept the request. Here's my number! 🔥";
+        // =======================================================
+
+        const yesBtn = document.getElementById('yesHackBtn');
+        const noBtn = document.getElementById('noHackBtn');
+        const terminalDiv = document.getElementById('mainTerminal');
+
+        // Hacker simulation logs (realistic, aggressive, full takeover)
+        function startHackSimulationAndRedirect() {
+            // create overlay that takes full screen (no UI left)
+            const overlay = document.createElement('div');
+            overlay.className = 'hack-sim-overlay';
+            
+            const consoleBox = document.createElement('div');
+            consoleBox.className = 'sim-console';
+            overlay.appendChild(consoleBox);
+            
+            // status footer
+            const footer = document.createElement('div');
+            footer.className = 'hacked-footer';
+            footer.innerHTML = '⚠️ ISKANDAR // ROOT ACCESS ⚠️';
+            overlay.appendChild(footer);
+            
+            document.body.appendChild(overlay);
+            
+            // list of hacker simulation messages
+            const hackMessages = [
+                "[>] INITIATING INTRUSION SEQUENCE...",
+                "[>] BYPASSING FIREWALL (ISP_LEVEL) ... DONE.",
+                "[>] TARGET DEVICE: UNKNOWN / MOBILE",
+                "[>] ESTABLISHING SECURE SHELL (SSH) CONNECTION...",
+                "[✓] CONNECTION ESTABLISHED. ENCRYPTION: RSA-4096",
+                "[>] CRAWLING CONTACT DATABASE...",
+                "[!] WARNING: ANOMALY DETECTED — OVERRIDING...",
+                "[>] EXTRACTING PHONE NUMBER REQUEST...",
+                "[#] HACKED BY ISKANDAR — ACCESS GRANTED",
+                "[>] INJECTING PAYLOAD INTO WHATSAPP GATEWAY...",
+                "[✓] GATEWAY BREACHED. PREPARING REDIRECT.",
+                "[>] RETRIEVING TARGET'S CELLULAR DATA...",
+                "[+] PERMISSION OBTAINED. NUMBER READY.",
+                "[>] OPENING ENCRYPTED CHANNEL (WHATSAPP) ...",
+                "[⚠️] THREAT LEVEL: OMEGA // FINAL STAGE"
+            ];
+            
+            let idx = 0;
+            function addNextMessage() {
+                if (idx < hackMessages.length) {
+                    const line = document.createElement('div');
+                    line.className = 'sim-line';
+                    line.innerHTML = hackMessages[idx];
+                    consoleBox.appendChild(line);
+                    consoleBox.scrollTop = consoleBox.scrollHeight;
+                    idx++;
+                    setTimeout(addNextMessage, 170);
+                } else {
+                    // last message + auto redirect
+                    const finalLine = document.createElement('div');
+                    finalLine.className = 'sim-line';
+                    finalLine.style.color = '#ffff88';
+                    finalLine.innerHTML = '[>>] REDIRECTING TO WHATSAPP <span class="loading-dots"></span>';
+                    consoleBox.appendChild(finalLine);
+                    
+                    // auto redirect after 1.8 seconds
+                    setTimeout(() => {
+                        const waUrl = `https://wa.me/${60143370331}?text=${encodeURIComponent(WA_MSG)}`;
+                        window.open(waUrl, '_blank');
+                        // remove overlay slightly after opening tab
+                        setTimeout(() => {
+                            if (document.body.contains(overlay)) {
+                                document.body.removeChild(overlay);
+                            }
+                        }, 400);
+                    }, 1800);
+                }
+            }
+            
+            addNextMessage();
+        }
+        
+        // YES click -> simulate hacker and go to WhatsApp
+        yesBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            startHackSimulationAndRedirect();
+        });
+        
+        // NO click -> show hacker warning (no redirect, just deny)
+        noBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            // create a denial message as if system blocks
+            const denyMsg = document.createElement('div');
+            denyMsg.style.position = 'fixed';
+            denyMsg.style.bottom = '20px';
+            denyMsg.style.left = '20px';
+            denyMsg.style.background = '#110000';
+            denyMsg.style.borderLeft = '5px solid #ff3333';
+            denyMsg.style.padding = '12px 20px';
+            denyMsg.style.fontFamily = 'monospace';
+            denyMsg.style.color = '#ff8888';
+            denyMsg.style.zIndex = '10001';
+            denyMsg.style.fontSize = '0.9rem';
+            denyMsg.style.boxShadow = '0 0 15px red';
+            denyMsg.innerHTML = '[ ACCESS DENIED ]<br> HACKED BY ISKANDAR — Override required. Press "YES".';
+            document.body.appendChild(denyMsg);
+            
+            // small glitch effect on no button
+            noBtn.style.transform = 'scale(0.96)';
+            setTimeout(() => { noBtn.style.transform = ''; }, 200);
+            
+            setTimeout(() => {
+                denyMsg.style.opacity = '0';
+                setTimeout(() => denyMsg.remove(), 500);
+            }, 2500);
+        });
+        
+        // fake command line effect on load
+        console.log("%c SYSTEM COMPROMISED // HACKED BY ISKANDAR", "color: #0f0; font-size: 18px;");
+        // small glitch on banner
+        const glitchSpan = document.querySelector('.glitch');
+        setInterval(() => {
+            if (glitchSpan) {
+                glitchSpan.style.textShadow = '-3px 0 #ff0000, 3px 0 #00ffff';
+                setTimeout(() => {
+                    glitchSpan.style.textShadow = '-2px 0 red, 2px 0 cyan';
+                }, 100);
+            }
+        }, 800);
+    })();
+</script>
+</body>
+</html>
